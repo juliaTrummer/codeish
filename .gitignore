@@ -1,0 +1,14 @@
+.DS_Store
+.gradle/
+build/
+!**/src/**/build
+!**/test/**/build
+*.iml
+.idea
+.idea/*
+/dist
+/local
+/gh-pages
+/ideaSDK
+/clionSDK
+/android-studio/sdk
