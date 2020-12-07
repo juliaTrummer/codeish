@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "417334925110",
+    "project_id": "codeish-1afdb",
+    "storage_bucket": "codeish-1afdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417334925110:android:56a92bf5f1fd37e8628597",
+        "android_client_info": {
+          "package_name": "com.mobappdev.codeish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417334925110-d3au76bppae58hv33hq5g8jjkcif3u86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobappdev.codeish",
+            "certificate_hash": "bbce5a5dda60b35b81741cc7f00e0b2d54a62998"
+          }
+        },
+        {
+          "client_id": "417334925110-6893tio84poerevl94j4q5prd0oophf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGMA91mzBTmATd_zNml14cMtHVwwxLfsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417334925110-6893tio84poerevl94j4q5prd0oophf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

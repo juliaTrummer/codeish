@@ -1,96 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="24dp"
-    android:layout_marginStart="24dp"
-    android:layout_marginTop="8dp"
-    android:orientation="vertical"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bk"
+    tools:context=".RegisterActivity">
 
-    <TextView
-        style="@style/loginHeader"
-        android:layout_width="wrap_content"
+    <ProgressBar
+        android:id="@+id/progressBarRegister"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/loginViewsMargin"
-        android:layout_gravity="center"
-        android:text="Register" />
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alreadyAccountTextView"
+        />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputName"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
 
-        <EditText
-            android:id="@+id/editTextName"
-            style="@style/modifiedEditText"
-            android:layout_height="36dp"
-            android:hint="@string/login_name_hint"
-            android:inputType="textPersonName"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/usernameRegisterEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_edittext_register"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputMobile"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
+    <EditText
+        android:id="@+id/emailRegisterEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edittext_register"
+        android:ems="10"
+        android:hint="Email"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/usernameRegisterEditText"
+        app:layout_constraintStart_toStartOf="@+id/usernameRegisterEditText"
+        app:layout_constraintTop_toBottomOf="@+id/usernameRegisterEditText" />
 
-        <EditText
-            android:id="@+id/editTextMobile"
-            style="@style/modifiedEditText"
-            android:layout_height="36dp"
-            android:hint="@string/login_mobile_number_hint"
-            android:inputType="phone"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputEmail"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            style="@style/modifiedEditText"
-            android:layout_height="36dp"
-            android:hint="@string/login_email_hint"
-            android:inputType="textEmailAddress"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputPassword"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            style="@style/modifiedEditText"
-            android:layout_height="36dp"
-            android:hint="@string/login_password_hint"
-            android:inputType="textPassword"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/passwordRegisterEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edittext_register"
+        android:ems="10"
+        android:hint="Password"
+        android:paddingLeft="15dp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/emailRegisterEditText"
+        app:layout_constraintStart_toStartOf="@+id/emailRegisterEditText"
+        app:layout_constraintTop_toBottomOf="@+id/emailRegisterEditText" />
 
     <Button
-        android:id="@+id/cirLoginButton"
-        style="@style/loginButton"
-        android:layout_width="260dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/loginViewsMargin"
-        android:text="Signup" />
+        android:id="@+id/registerButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Register"
+        android:background="@drawable/rounded_edittext_register"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/passwordRegisterEditText"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/passwordRegisterEditText"
+        app:layout_constraintTop_toBottomOf="@+id/passwordRegisterEditText" />
 
     <TextView
-        style="@style/parent"
-        android:textAlignment="textEnd"
-        android:textStyle="bold"
-        android:textColor="@color/primaryTextColor"
-        android:text="@string/login_signup_hint"
-        android:layout_marginTop="@dimen/loginViewsMargin"/>
+        android:id="@+id/alreadyAccountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/signup_login_hint"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/registerButton"
+        app:layout_constraintStart_toStartOf="@+id/registerButton"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="293dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
