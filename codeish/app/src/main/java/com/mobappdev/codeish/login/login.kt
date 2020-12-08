@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.mobappdev.codeish.MainActivity
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.userdata.userSpecificData
 
 class LoginActivity : AppCompatActivity() {
 
@@ -53,8 +54,8 @@ class LoginActivity : AppCompatActivity() {
     private fun logIn() {
         //progressBar = findViewById(R.id.progressBarLogin)
         progressBar?.visibility = View.VISIBLE
-        email = findViewById<TextInputEditText>(R.id.emailLoginEditText).text.toString()
-        password = findViewById<TextInputEditText>(R.id.passwordLoginEditText).text.toString()
+        email = findViewById<EditText>(R.id.emailLoginEditText).text.toString()
+        password = findViewById<EditText>(R.id.passwordLoginEditText).text.toString()
 
 
         if (hasInputValidationError()) {
@@ -65,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, userSpecificData::class.java)
                     startActivity(intent)
                 }
             }

@@ -32,6 +32,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".userdata.userSpecificData">
+            <intent-filter>
+                <action android:name="com.mobappdev.codeish.userdata.userSpecificData" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
     </application>
 

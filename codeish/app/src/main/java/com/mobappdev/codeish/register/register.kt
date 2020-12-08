@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.mobappdev.codeish.MainActivity
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.userdata.userSpecificData
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -45,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, userSpecificData::class.java)
             startActivity(intent)
         }
     }
@@ -64,8 +65,8 @@ class RegisterActivity : AppCompatActivity() {
      * registration
      */
     private fun createAccount() {
-        progressBar = findViewById(R.id.progressBarRegister)
-        progressBar?.visibility = View.VISIBLE
+        //progressBar = findViewById(R.id.progressBarRegister)
+        //progressBar?.visibility = View.VISIBLE
 
         userName = findViewById<EditText>(R.id.usernameRegisterEditText).text.toString()
         email = findViewById<EditText>(R.id.emailRegisterEditText).text.toString()
@@ -81,7 +82,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Log.d("register activity", "createUserWithEmail:success")
                         saveUserToDB(userName, email)
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, userSpecificData::class.java)
                         startActivity(intent)
                     }
                 }
