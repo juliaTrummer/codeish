@@ -9,20 +9,20 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/studentbutton"
         android:layout_width="326dp"
         android:layout_height="155dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button"
         android:text="Student"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/teacherButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/teacherButton"
         android:layout_width="326dp"
         android:layout_height="155dp"
         android:layout_marginBottom="140dp"
@@ -41,7 +41,7 @@
         android:background="#009F5B5B"
         android:text="I am a ..."
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/studentbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

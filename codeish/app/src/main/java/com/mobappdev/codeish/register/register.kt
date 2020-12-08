@@ -2,17 +2,14 @@ package com.mobappdev.codeish
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import com.mobappdev.codeish.MainActivity
-import com.mobappdev.codeish.R
 import com.mobappdev.codeish.userdata.userSpecificData
 
 class RegisterActivity : AppCompatActivity() {
@@ -46,9 +43,26 @@ class RegisterActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            val intent = Intent(this, userSpecificData::class.java)
-            startActivity(intent)
+            var profession : String? = loadPreferences()
+            if(profession!=null && !profession.equals("")){
+                if(profession.equals("student")){
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }else if(profession.equals("teacher")){
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }else{
+                val intent = Intent(this, userSpecificData::class.java)
+                startActivity(intent)
+            }
         }
+    }
+
+    private fun loadPreferences() : String?{
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val keys: Map<String, *> = sharedPreference.all
+        return keys.get("PROFESSION").toString()
     }
 
     private fun closeKeyboard() {
