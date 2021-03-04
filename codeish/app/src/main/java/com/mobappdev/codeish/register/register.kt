@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mobappdev.codeish.mainpage.mainpage
 import com.mobappdev.codeish.userdata.userSpecificData
 
 class RegisterActivity : AppCompatActivity() {
@@ -33,6 +34,11 @@ class RegisterActivity : AppCompatActivity() {
         findViewById<Button>(R.id.registerButton).setOnClickListener {
             closeKeyboard()
             createAccount()
+        }
+
+        findViewById<ImageView>(R.id.close).setOnClickListener(){
+            val intent = Intent(this, mainpage::class.java)
+            startActivity(intent)
         }
     }
 

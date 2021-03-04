@@ -10,6 +10,7 @@ import android.widget.*
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.mainpage.mainpage
 import com.mobappdev.codeish.userdata.userSpecificData
 
 class LoginActivity : AppCompatActivity() {
@@ -31,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.loginButton).setOnClickListener {
             closeKeyboard()
             logIn()
+        }
+
+        findViewById<ImageView>(R.id.close).setOnClickListener(){
+            val intent = Intent(this, mainpage::class.java)
+            startActivity(intent)
         }
     }
 

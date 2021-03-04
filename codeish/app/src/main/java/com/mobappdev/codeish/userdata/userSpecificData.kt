@@ -31,7 +31,7 @@ class userSpecificData : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.teacherButton).setOnClickListener(){
-            saveUserData(UserDataObject(FirebaseAuth.getInstance().uid.toString(), "", "teacher"))
+            saveUserData(UserDataObject(FirebaseAuth.getInstance().uid.toString(), "test", "teacher"))
         }
     }
 
