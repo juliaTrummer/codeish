@@ -52,10 +52,10 @@ class RegisterActivity : AppCompatActivity() {
             var profession : String? = loadPreferences()
             if(profession!=null && !profession.equals("")){
                 if(profession.equals("student")){
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, mainView::class.java)
                     startActivity(intent)
                 }else if(profession.equals("teacher")){
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, mainView::class.java)
                     startActivity(intent)
                 }
             }else{

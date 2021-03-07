@@ -30,18 +30,51 @@ class mainView : AppCompatActivity() {
     }
 
     private fun createTopicsList(){
-
-
          allTopics =
             arrayListOf<Topic>(
-                Topic(resources.getString(R.string.header1), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header2), "test1", "testtext1", "imgage", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header3), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header4), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header5), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header6), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header7), "test", "testtext", "img", Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header8), "test", "testtext", "img", Intent(this, gettingstarted::class.java)))
+                Topic(resources.getString(R.string.header1),
+                    "test",
+                    "Computer sind überall, nicht nur im Telefon und Laptops.",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header2),
+                    "test1",
+                    "Technologien und Magie!",
+                    "imgage",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header3),
+                    "test",
+                    "Was ist Hardware? Dieses englische Wort beschreibt alle Dinge " +
+                            "die man in echt bei einem Computer berühren kann!",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header4),
+                    "test",
+                    "Weißt du schon wie ein Computer Probleme löst?",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header5),
+                    "test",
+                    "Hast du schon mal von dem Wort DATEN gehört?",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header6),
+                    "test",
+                    "Ich möchte das Programmieren gerne selber ausprobieren!",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header7),
+                    "test",
+                    "Hast du gewusst dass auch viele verschiedene Sprachen gibt, " +
+                            "um einen Computer Anweisungen zu geben?",
+                    "img",
+                    Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header8),
+                    "test",
+                    "Kennst du dich mit Snapchat, " +
+                            "Instagram und Co aus?",
+                    "img",
+                    Intent(this, gettingstarted::class.java)))
 
 
     }
