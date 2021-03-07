@@ -6,4 +6,4 @@ data class Topic(var name : String = "",
                         var title : String = "",
                         var description : String ="",
                         var imagePath : String ="",
-                        var activityName: Intent? = null)
+                        var activityName: Intent = Intent())

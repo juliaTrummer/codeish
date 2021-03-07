@@ -23,6 +23,7 @@
 
     <!--colors for theme space-->
     <color name="spacebackground">#061035</color>
+    <color name="white">#FFFFFF</color>
 
 
 

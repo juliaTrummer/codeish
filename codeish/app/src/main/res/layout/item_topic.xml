@@ -8,11 +8,12 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/relativeLayoutTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_item_topic"
         android:minHeight="200dp"
-        android:padding="10dp">
+        android:paddingLeft="10dp">
 
         <TextView
             android:id="@+id/item_title"
@@ -23,7 +24,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="260dp"
             android:textSize="40dp"
-            android:textColor="@color/colorAccent"/>
+            android:layout_marginTop="10dp"
+            android:textColor="@color/whiteCardColor"/>
 
         <TextView
             android:id="@+id/item_description"
@@ -34,7 +36,7 @@
             android:layout_below="@+id/item_title"
             android:layout_marginEnd="20dp"
             android:textSize="30dp"
-            android:textColor="@color/content_text_color"
+            android:textColor="@color/whiteCardColor"
             />
 
         <TextView
@@ -45,8 +47,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignRight="@+id/item_title"
             android:layout_marginEnd="25dp"
+            android:layout_marginTop="20dp"
             android:text="1/10"
-            android:textColor="@color/colorAccentTop"/>
+            android:textColor="@color/whiteCardColor"/>
 
         <ImageView
             android:id="@+id/image"
@@ -56,7 +59,6 @@
             android:layout_marginTop="10dp"
             android:layout_alignParentLeft="@+id/item_title"
             android:src="@drawable/earth"
-            android:background="@drawable/rounded_item_topic"
             android:layout_marginBottom="10dp"/>
     </RelativeLayout>
 

@@ -7,6 +7,6 @@ import com.mobappdev.codeish.R
 class gettingstarted : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.chapter1_gettingstarted)
     }
 }
