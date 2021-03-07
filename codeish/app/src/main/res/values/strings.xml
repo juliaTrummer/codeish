@@ -9,4 +9,17 @@
     <string name="login_mobile_number_hint">Mobile Number</string>
     <string name="canvasContentDescription">Mini Paint is a simple line drawing app.
    Drag your fingers to draw. Rotate the phone to clear.</string>
+    <string name="filler">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At </string>
+
+
+    <string name="header1">Die Reise beginnt!</string>
+    <string name="header2">Was ist Informatik?</string>
+    <string name="header3">Hardware</string>
+    <string name="header4">Wie denkt ein Computer eigentlich?</string>
+    <string name="header5">Was sind Daten?</string>
+    <string name="header6">Lass uns Programmieren!</string>
+    <string name="header7">Es gibt noch mehr!</string>
+    <string name="header8">Bist du ein soziale Medien Profi?</string>
+
 </resources>

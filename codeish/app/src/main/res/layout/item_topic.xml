@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fff">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:background="@drawable/card_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingBottom="10dp">
+        android:background="@drawable/rounded_item_topic"
+        android:minHeight="200dp"
+        android:padding="10dp">
 
         <TextView
-            android:id="@+id/item_text"
+            android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sample Header"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="260dp"
+            android:textSize="40dp"
             android:textColor="@color/colorAccent"/>
 
         <TextView
@@ -34,31 +30,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum Test Test Test Lorem Ipsum Test Test Test Lorem Ipsum Test "
-            android:layout_alignStart="@+id/item_text"
-            android:layout_below="@+id/item_text"
+            android:layout_alignStart="@+id/item_title"
+            android:layout_below="@+id/item_title"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
+            android:textSize="30dp"
             android:textColor="@color/content_text_color"
             />
 
         <TextView
             android:id="@+id/fincounter"
+            android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignRight="@+id/item_text"
-            android:layout_marginTop="40dp"
+            android:layout_alignRight="@+id/item_title"
             android:layout_marginEnd="25dp"
             android:text="1/10"
             android:textColor="@color/colorAccentTop"/>
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            tools:srcCompat="@tools:sample/avatars"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="40dp"
-            android:layout_alignParentLeft="@+id/item_text"/>
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="@+id/item_title"
+            android:src="@drawable/earth"
+            android:background="@drawable/rounded_item_topic"
+            android:layout_marginBottom="10dp"/>
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

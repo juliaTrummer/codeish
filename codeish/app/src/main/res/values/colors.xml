@@ -5,8 +5,8 @@
     <color name="colorAccent">#00A5FF</color>
 
     <!--colors for topic list-->
-    <color name="colorPriTop">#fffffff</color>
-    <color name="colorPriDarkTop">#fffffff</color>
+    <color name="colorPriTop">#ffffff</color>
+    <color name="colorPriDarkTop">#ffffff</color>
     <color name="colorAccentTop">#107A7A</color>
     
     <color name="card_bg">#DC5E5E</color>
@@ -20,5 +20,11 @@
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
+
+    <!--colors for theme space-->
+    <color name="spacebackground">#061035</color>
+
+
+
 
 </resources>
