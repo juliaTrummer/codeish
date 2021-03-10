@@ -3,23 +3,49 @@ package com.mobappdev.codeish.mainView
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.mobappdev.codeish.MainActivity
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.chapter1.gettingstarted
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
+import www.sanju.motiontoast.MotionToast
 
 class mainView : AppCompatActivity() {
 
     lateinit var allTopics : ArrayList<Topic>
+    lateinit var toggle : ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.topics_recycler)
+
+        val drawerLayout : DrawerLayout = findViewById(R.id.drawerlayout)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navview : NavigationView = findViewById(R.id.navview)
+
+        navview.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.item1 -> println("Test")
+                R.id.item2 -> println("Test2")
+                R.id.item3 -> println("Test3")
+            }
+            true
+        }
 
         createTopicsList()
 
@@ -27,6 +53,13 @@ class mainView : AppCompatActivity() {
         rvTopic?.layoutManager = LinearLayoutManager(this)
         val adapter = TopicList(allTopics, this)
         rvTopic?.adapter = adapter
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun createTopicsList(){
@@ -72,10 +105,8 @@ class mainView : AppCompatActivity() {
                 Topic(resources.getString(R.string.header8),
                     "test",
                     "Kennst du dich mit Snapchat, " +
-                            "Instagram und Co aus?",
+                            "Instagram und Tiktok aus?",
                     "img",
                     Intent(this, gettingstarted::class.java)))
-
-
     }
 }

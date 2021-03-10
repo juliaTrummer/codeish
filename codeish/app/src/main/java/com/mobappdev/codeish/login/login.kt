@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.mainView.mainView
 import com.mobappdev.codeish.userdata.userSpecificData
+import www.sanju.motiontoast.MotionToast
 
 class LoginActivity : AppCompatActivity() {
 
@@ -54,7 +56,6 @@ class LoginActivity : AppCompatActivity() {
      * log in
      */
     private fun logIn() {
-        //progressBar = findViewById(R.id.progressBarLogin)
         progressBar?.visibility = View.VISIBLE
         email = findViewById<EditText>(R.id.emailLoginEditText).text.toString()
         password = findViewById<EditText>(R.id.passwordLoginEditText).text.toString()
@@ -73,8 +74,13 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Failed to login user: ${it.message}", Toast.LENGTH_SHORT)
-                    .show()
+                MotionToast.createToast(this,
+                    "OH NO!",
+                    "Du hast ein falsches Passwort oder eine falsche E-Mail eingegeben.",
+                    MotionToast.TOAST_ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this,R.font.helvetica_regular))
                 progressBar?.visibility = View.INVISIBLE
             }
     }

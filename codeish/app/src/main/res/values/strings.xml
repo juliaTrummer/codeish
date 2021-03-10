@@ -20,6 +20,12 @@
     <string name="header5">Was sind Daten?</string>
     <string name="header6">Lass uns Programmieren!</string>
     <string name="header7">Es gibt noch mehr!</string>
-    <string name="header8">Bist du ein soziale Medien Profi?</string>
+    <string name="header8">Bist du ein  Profi?</string>
 
+
+    <string name="chapter1_text1">Wusstest du das Computer überall sind?</string>
+
+
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

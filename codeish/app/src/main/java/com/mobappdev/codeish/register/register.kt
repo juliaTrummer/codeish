@@ -103,6 +103,7 @@ class RegisterActivity : AppCompatActivity() {
                         Log.d("register activity", "createUserWithEmail:success")
                         saveUserToDB(userName, email)
                         val intent = Intent(this, userSpecificData::class.java)
+                        intent.putExtra("username", userName)
                         startActivity(intent)
                     }
                 }

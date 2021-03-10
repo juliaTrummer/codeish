@@ -7,14 +7,19 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobappdev.codeish.MainActivity
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.dao.UserDataObject
+import com.mobappdev.codeish.mainView.mainView
+import org.w3c.dom.Text
+import www.sanju.motiontoast.MotionToast
 
 
 class userSpecificData : AppCompatActivity() {
@@ -26,8 +31,15 @@ class userSpecificData : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.userdata)
 
+        var username : String? = intent.getStringExtra("username")
+        if(username!=null){
+            findViewById<TextView>(R.id.usernameGreeting).setText(username)
+        }
+
         findViewById<Button>(R.id.studentbutton).setOnClickListener(){
-            saveUserData(UserDataObject(FirebaseAuth.getInstance().uid.toString(), "123asdf243", "student"))
+            if(username!=null){
+                saveUserData(UserDataObject(FirebaseAuth.getInstance().uid.toString(), username, "student"))
+            }
         }
 
         findViewById<Button>(R.id.teacherButton).setOnClickListener(){
@@ -54,9 +66,15 @@ class userSpecificData : AppCompatActivity() {
                     .document()
                     .set(userData)
                     .addOnSuccessListener {
-                        Toast.makeText(baseContext, "Saved userData successfully!", Toast.LENGTH_LONG).show()
+                        MotionToast.createToast(this,
+                                "Hurra 😍",
+                                "Du bist nun angemeldet!",
+                                MotionToast.TOAST_SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.SHORT_DURATION,
+                                ResourcesCompat.getFont(this,R.font.helvetica_regular))
                         Log.d(ContentValues.TAG, TAG + "SUCCESS: Saved userData successfully!")
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, mainView::class.java)
                         startActivity(intent)
                     }
                     .addOnFailureListener { e -> Log.w(ContentValues.TAG, TAG + "ERROR: could not save userData!", e) }
