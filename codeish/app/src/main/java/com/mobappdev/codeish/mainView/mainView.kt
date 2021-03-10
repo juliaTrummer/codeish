@@ -18,6 +18,10 @@ import com.mobappdev.codeish.R
 import com.mobappdev.codeish.chapter1.gettingstarted
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
+import com.mobappdev.codeish.profile.Profile
+import com.mobappdev.codeish.settings.Settings
+import com.mobappdev.codeish.shop.Shop
+import com.mobappdev.codeish.userdata.userSpecificData
 import www.sanju.motiontoast.MotionToast
 
 class mainView : AppCompatActivity() {
@@ -40,9 +44,18 @@ class mainView : AppCompatActivity() {
 
         navview.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> println("Test")
-                R.id.item2 -> println("Test2")
-                R.id.item3 -> println("Test3")
+                R.id.item1 -> {
+                    val intent = Intent(this, Shop::class.java)
+                    startActivity(intent)
+                }
+                R.id.item2 -> {
+                    val intent = Intent(this, Settings::class.java)
+                    startActivity(intent)
+                }
+                R.id.item3 -> {
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }

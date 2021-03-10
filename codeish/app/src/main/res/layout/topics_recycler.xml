@@ -29,6 +29,7 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_drawer_menu"
         android:fitsSystemWindows="true"
-        android:layout_gravity="left"/>
+        android:layout_gravity="left"
+        app:itemTextAppearance="@style/menu_text_style"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

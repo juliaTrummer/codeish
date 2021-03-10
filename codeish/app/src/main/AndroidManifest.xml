@@ -50,6 +50,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".settings.Settings">
+            <intent-filter>
+                <action android:name="com.mobappdev.codeish.settings.Settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".shop.Shop">
+            <intent-filter>
+                <action android:name="com.mobappdev.codeish.shop.Shop" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".profile.Profile">
+            <intent-filter>
+                <action android:name="com.mobappdev.codeish.profile.Profile" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
 
     </application>

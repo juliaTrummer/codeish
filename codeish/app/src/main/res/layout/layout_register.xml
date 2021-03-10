@@ -6,6 +6,7 @@
     app:cardCornerRadius="@dimen/loginCardRadius"
     android:elevation="5dp"
     android:layout_gravity="center"
+    android:layout_height="800dp"
     android:layout_marginTop="@dimen/loginViewsMargin"
     android:layout_marginBottom="@dimen/loginViewsMargin"
     android:background="@color/whiteCardColor">
@@ -13,7 +14,8 @@
     <LinearLayout
         style="@style/linearParent"
         android:layout_gravity="center"
-        android:padding="@dimen/loginViewsMargin">
+        android:padding="@dimen/loginViewsMargin"
+        android:layout_height="match_parent">
         <ImageView
             android:layout_width="wrap_content"
             android:id="@+id/close"
@@ -27,7 +29,8 @@
         <TextView
             style="@style/headerTextPrimary"
             android:text="@string/register"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:textSize="@dimen/buttonheight"/>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
@@ -63,11 +66,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:layout_marginTop="20px"
+            android:layout_marginTop="20dp"
             android:id="@+id/registerButton"
             style="@style/loginButton"
             android:layout_gravity="center"
-            android:text="Register" />
+            android:text="Register"
+            android:layout_height="@dimen/buttonheight"
+            android:layout_width="match_parent"/>
 
         <TextView
             style="@style/parent"

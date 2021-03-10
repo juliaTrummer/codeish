@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_register)
+        setContentView(R.layout.activity_register)
         auth = FirebaseAuth.getInstance()
 
         findViewById<TextView>(R.id.alreadyAccountTextView).setOnClickListener {

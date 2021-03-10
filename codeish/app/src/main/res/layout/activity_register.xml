@@ -48,7 +48,7 @@
 
                 <include
                     android:id="@+id/card"
-                    layout="@layout/layout_login"/>
+                    layout="@layout/layout_register"/>
 
             </LinearLayout>
         </RelativeLayout>
