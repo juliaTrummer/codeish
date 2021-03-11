@@ -37,9 +37,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         findViewById<ImageView>(R.id.close).setOnClickListener(){
-            val intent = Intent(this, mainView::class.java)
-            startActivity(intent)
+           startMainView()
         }
+    }
+
+    private fun startMainView(){
+        val intent = Intent(this, mainView::class.java)
+        startActivity(intent)
     }
 
     private fun closeKeyboard() {
@@ -69,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, userSpecificData::class.java)
+                    val intent = Intent(this, mainView::class.java)
                     startActivity(intent)
                 }
             }

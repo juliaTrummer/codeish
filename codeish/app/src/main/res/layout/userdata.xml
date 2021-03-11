@@ -60,32 +60,16 @@
 
     <TextView
         android:id="@+id/greeting2"
-        android:layout_width="wrap_content"
-        android:layout_height="73dp"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="9dp"
-        android:text="Hallo"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="50dp"
+        android:text="Hallo ..."
         android:textColor="@color/whiteCardColor"
         android:textSize="50sp"
-        app:layout_constraintEnd_toStartOf="@+id/usernameGreeting"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/usernameGreeting"
-        android:layout_width="600dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="96dp"
-        android:text="..."
-        android:textColor="@color/whiteCardColor"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/textview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/greeting2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
