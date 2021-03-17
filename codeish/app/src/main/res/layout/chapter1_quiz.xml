@@ -12,7 +12,7 @@
 
 
     <TextView
-        android:id="@+id/Question1"
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Question1">
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
         <ImageButton
             android:id="@+id/imageButton0"

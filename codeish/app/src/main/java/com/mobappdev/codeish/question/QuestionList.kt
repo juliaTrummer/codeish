@@ -1,7 +1,9 @@
 package com.mobappdev.codeish.question
 
+import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
@@ -10,12 +12,15 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.awesomedialog.*
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.StorageReference
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.chapter1.itemquiz
+import com.mobappdev.codeish.mainView.mainView
 
 class QuestionList : AppCompatActivity() {
 
@@ -26,27 +31,27 @@ class QuestionList : AppCompatActivity() {
     private var questiongroups : MutableList<QuestionGroup> = ArrayList()
     private var imageButtons : MutableList<ImageButton> = ArrayList()
     private var textViews : MutableList<TextView> = ArrayList()
+    private var questionList : MutableList<Question> = ArrayList()
     private var questionCounter : Int = 0
+    private var storageString : String = ""
+    lateinit var header : TextView
     lateinit var context : Context
     lateinit var storage : FirebaseStorage
 
-    var questionList : MutableList<Question> = ArrayList()
-
-
     fun generateQuestions(progressBar: ProgressBar, imageViews : MutableList<ImageButton>,
-                          textViews:MutableList<TextView>, context : Context){
+                          textViews:MutableList<TextView>, header: TextView, storageString:String,
+                          context : Context){
         db = FirebaseFirestore.getInstance()
-
         this.progressBar = progressBar
         progressBar.visibility = View.VISIBLE
         this.imageButtons = imageViews
         this.textViews = textViews
         this.context = context
+        this.header = header
+        this.storageString  = storageString
         storage = FirebaseStorage.getInstance()
 
-
         getAllQuestions()
-
     }
 
     private fun generateTrueFalseList(){
@@ -57,16 +62,19 @@ class QuestionList : AppCompatActivity() {
                 falseQuestions.add(question)
             }
         }
+        trueQuestions.shuffle()
+        falseQuestions.shuffle()
     }
 
     private fun randomQuestions(){
         var counter : Int = 1
         if(questiongroups.size==0){
             for (trueQuestion in trueQuestions){
-                if(counter < falseQuestions.size){
+                if(counter < falseQuestions.size-1){
+                    //TODO: Randomize Questions
                     questiongroups.add(QuestionGroup(falseQuestions[counter], falseQuestions[counter+1], trueQuestion))
+                    counter+=2
                 }
-                counter+=2
             }
         }
     }
@@ -94,6 +102,7 @@ class QuestionList : AppCompatActivity() {
     private fun addimagesToView() {
         if(questiongroups!=null && questiongroups.size!=0 && questionCounter<questiongroups.size){
             var qg = questiongroups[questionCounter]
+            header.setText("Frage ${questionCounter + 1}")
             for (i in 0..2){
                 when(i){
                     0->{
@@ -119,8 +128,6 @@ class QuestionList : AppCompatActivity() {
                     }
                 }
             }
-        }else{
-
         }
     }
 
@@ -128,32 +135,42 @@ class QuestionList : AppCompatActivity() {
         if(rightAnswer){
             Log.d(ContentValues.TAG, "SUCCESS: Selected right answer")
             questionCounter++
+            addimagesToView()
+            if(questionCounter>=questiongroups.size){
+                AwesomeDialog.build(context as Activity)
+                        .title("Toll gemacht!")
+                        .icon(R.drawable.ic_congrts)
+                        .onPositive("Zurück zu den Themen!") {
+                            val intent = Intent(context, mainView::class.java)
+                            context.startActivity(intent)
+                        }
+            }
         }else{
             Log.d(ContentValues.TAG, "Fail: Selected wrong answer")
+            AwesomeDialog.build(context as Activity)
+                    .title("Oh Nein...")
+                    .icon(R.drawable.ic_error_)
+                    .onPositive("Versuche es noch einmal!")
         }
 
     }
     private fun insertingImgWithGlide(img: ImageView, imgPath:String){
-        var storageReference = FirebaseStorage.getInstance().reference.child("gettingstarted/"+imgPath)
+        var storageReference = FirebaseStorage.getInstance().reference.child(storageString+imgPath)
         storageReference.downloadUrl.addOnSuccessListener { Uri ->
             val imageUrl = Uri.toString()
             Glide.with(context)
                     .load(imageUrl)
                     .fitCenter()
-                    .placeholder(R.drawable.earth)
+                    .placeholder(R.drawable.card_bg)
                     .error(R.drawable.ic_error_)
                     .into(img)
         }
         progressBar?.visibility = View.INVISIBLE
     }
 
-    private fun updateView(){
-        addimagesToView()
-    }
-
     private fun getAllQuestionImgs() {
         val storage = FirebaseStorage.getInstance()
-        val listRef = storage.reference.child("gettingstarted")
+        val listRef = storage.reference.child(storageString)
         val imgList : ArrayList<img> = ArrayList()
         val allTaskList : Task<ListResult> = listRef.listAll()
 

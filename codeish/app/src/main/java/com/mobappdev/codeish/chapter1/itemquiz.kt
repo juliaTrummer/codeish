@@ -21,6 +21,8 @@ class itemquiz : AppCompatActivity() {
         setContentView(R.layout.chapter1_quiz)
 
         val progressBar : ProgressBar = findViewById(R.id.progressBar)
+        val header : TextView = findViewById(R.id.header)
+        val storageString : String = "gettingstarted/"
 
         imageViews = ArrayList()
         imageViews.add(findViewById(R.id.imageButton0))
@@ -31,6 +33,7 @@ class itemquiz : AppCompatActivity() {
         textViews.add(findViewById(R.id.nametag1))
         textViews.add(findViewById(R.id.nametag2))
 
-        questions.generateQuestions(progressBar, imageViews, textViews, this)
+        questions.generateQuestions(progressBar, imageViews, textViews, header, storageString,
+            this)
     }
 }
