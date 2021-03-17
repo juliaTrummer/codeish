@@ -1,7 +1,9 @@
 package com.mobappdev.codeish.chapter1
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.MediaController
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +28,12 @@ class gettingstarted : AppCompatActivity() {
         videoView.setVideoURI(onlineUri)
         videoView.requestFocus()
         videoView.start()
+
+        val nextButton : Button = findViewById<Button>(R.id.next)
+        nextButton.setOnClickListener {
+            val intent = Intent(this, itemquiz::class.java)
+            startActivity(intent)
+        }
 
     }
 }

@@ -70,6 +70,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".chapter1.itemquiz">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter1.itemquiz" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
 
     </application>
