@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
@@ -13,6 +14,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.awesomedialog.*
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,6 +26,7 @@ import com.google.firebase.storage.StorageReference
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.chapter1.itemquiz
 import com.mobappdev.codeish.mainView.mainView
+import javax.sql.DataSource
 
 class QuestionList : AppCompatActivity() {
 
@@ -73,10 +78,19 @@ class QuestionList : AppCompatActivity() {
             for (trueQuestion in trueQuestions){
                 if(counter < falseQuestions.size-1){
                     //TODO: Randomize Questions
-                    questiongroups.add(QuestionGroup(falseQuestions[counter], falseQuestions[counter+1], trueQuestion))
+                    randomizeQuestions(counter, trueQuestion)
                     counter+=2
                 }
             }
+        }
+    }
+
+    private fun randomizeQuestions(counter : Int, trueQuestion : Question){
+        val rnds = (0..2).random()
+        when(rnds){
+            0->questiongroups.add(QuestionGroup(falseQuestions[counter], falseQuestions[counter+1], trueQuestion))
+            1->questiongroups.add(QuestionGroup( trueQuestion, falseQuestions[counter], falseQuestions[counter+1]))
+            2->questiongroups.add(QuestionGroup(falseQuestions[counter], trueQuestion, falseQuestions[counter+1]))
         }
     }
 
@@ -165,8 +179,8 @@ class QuestionList : AppCompatActivity() {
 
                     }
         }
-
     }
+
     private fun insertingImgWithGlide(img: ImageView, imgPath:String){
         var storageReference = FirebaseStorage.getInstance().reference.child(storageString+imgPath)
         storageReference.downloadUrl.addOnSuccessListener { Uri ->
@@ -176,9 +190,22 @@ class QuestionList : AppCompatActivity() {
                     .fitCenter()
                     .placeholder(R.drawable.card_bg)
                     .error(R.drawable.ic_error_)
+                    .listener(object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any?,
+                                                  target: Target<Drawable>?,
+                                                  isFirstResource: Boolean): Boolean {
+                            return true
+                        }
+                        override fun onResourceReady(resource: Drawable?, model: Any?,
+                                                     target: Target<Drawable>?,
+                                                     dataSource: com.bumptech.glide.load.DataSource?,
+                                                     isFirstResource: Boolean): Boolean {
+                            progressBar?.visibility = View.INVISIBLE
+                            return false
+                        }
+                    })
                     .into(img)
         }
-        progressBar?.visibility = View.INVISIBLE
     }
 
     private fun getAllQuestionImgs() {

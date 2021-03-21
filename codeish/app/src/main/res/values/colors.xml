@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0D47A1</color>
-    <color name="colorPrimaryDark">#1A237E</color>
-    <color name="colorAccent">#006064</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#69C8D5</color>
+    <color name="colorAccent">#B3DCDD</color>
 
     <!--colors for topic list-->
     <color name="colorPriTop">#ffffff</color>
     <color name="colorPriDarkTop">#ffffff</color>
     <color name="colorAccentTop">#107A7A</color>
-    
-    <color name="card_bg">#DC5E5E</color>
+
     <color name="title_text_color">#FFFFFF</color>
     <color name="content_text_color">#999da4</color>
 
@@ -22,7 +21,6 @@
     <color name="whiteCardColor">#fff</color>
 
     <!--colors for theme space-->
-    <color name="spacebackground">#1A237E</color>
     <color name="white">#FFFFFF</color>
 
 

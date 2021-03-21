@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/item1"
-        android:title="Profil"
-        android:icon="@drawable/ic_baseline_face_24"/>
-    <item android:id="@+id/item2"
-        android:title="Einkaufen"
-        android:icon="@drawable/ic_baseline_shopping_basket_24"/>
-    <item android:id="@+id/item3"
-        android:title="Einstellungen"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/ic_baseline_face_24"
+            android:title="Profil"
+            android:checked="true" />
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Einstellungen" />
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/ic_baseline_shopping_basket_24"
+            android:title="Shop" />
+    </group>
+
 
 
 </menu>

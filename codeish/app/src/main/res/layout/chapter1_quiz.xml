@@ -1,140 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/quziLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    style="@style/loginParent"
+    tools:context=".chapter4.binarygame.binarygame">
+    <ScrollView
+        style="@style/parent">
+        <RelativeLayout
+            style="@style/parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_alignParentTop="true"
+                android:weightSum="12">
+                <LinearLayout
+                    style="@style/parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/login_shape_bk"
+                    android:orientation="vertical">
+                    <ImageView
+                        style="@style/parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="301dp"
+                        android:background="@drawable/ic_login_bk"
+                        android:contentDescription="background" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp">
+                <TextView
+                    style="@style/headerText"
+                    android:layout_gravity="center"
+                    android:text="QUIZ"
+                    android:layout_marginTop="40dp"/>
+                <include
+                    android:id="@+id/card"
+                    layout="@layout/chapter1_quiz_card"/>
+            </LinearLayout>
+        </RelativeLayout>
 
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textAlignment="center"
-        android:textSize="@dimen/headerTextSize"
-        android:text="Question 1"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="163dp"
-        android:textAlignment="center"
-        android:textSize="@dimen/text"
-        android:text="Wähle einen Gegenstand aus."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toTopOf="@+id/text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
-
-        <ImageButton
-            android:id="@+id/imageButton0"
-            android:layout_width="261dp"
-            android:layout_height="247dp"
-            android:layout_marginTop="127dp"
-            android:layout_marginBottom="13dp"
-            android:background="@drawable/rounded_button"
-            app:layout_constraintBottom_toTopOf="@+id/nametag0"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="261dp"
-            android:layout_height="247dp"
-            android:layout_marginTop="127dp"
-            android:layout_marginBottom="13dp"
-            android:background="@drawable/rounded_button"
-            app:layout_constraintBottom_toTopOf="@+id/nametag2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageButton1"
-            app:layout_constraintTop_toTopOf="parent">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="261dp"
-            android:layout_height="247dp"
-            android:layout_marginTop="127dp"
-            android:layout_marginBottom="13dp"
-            android:background="@drawable/rounded_button"
-            app:layout_constraintBottom_toTopOf="@+id/nametag1"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-            app:layout_constraintStart_toEndOf="@+id/imageButton0"
-            app:layout_constraintTop_toTopOf="parent">
-        </ImageButton>
-
-        <TextView
-            android:id="@+id/nametag0"
-            android:layout_width="261dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="63dp"
-            android:textAlignment="center"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/nametag1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton0" />
-
-        <TextView
-            android:id="@+id/nametag1"
-            android:layout_width="261dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="63dp"
-            android:textAlignment="center"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/nametag2"
-            app:layout_constraintStart_toEndOf="@+id/nametag0"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
-
-        <TextView
-            android:id="@+id/nametag2"
-            android:layout_width="261dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="63dp"
-            android:textAlignment="center"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nametag1"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton1" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="2dp"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -26,7 +26,7 @@
             android:layout_marginBottom="111dp"
             android:text="Berechne: 255"
             android:textAlignment="center"
-            android:textColor="@color/spacebackground"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/headerTextSize"
             app:layout_constraintBottom_toTopOf="@+id/binaryTable"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/spacebackground"
+            android:background="@color/colorPrimary"
             android:stretchColumns="*"
             app:layout_constraintBottom_toTopOf="@+id/calculatedNumber"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,9 +136,9 @@
 
             <TableRow
                 android:layout_height="102dp"
-                android:background="@color/white">
+                android:background="@color/colorPriTop">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn128"
                     android:layout_width="0dp"
                     android:layout_column="0"
@@ -147,7 +147,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn64"
                     android:layout_width="0dp"
                     android:layout_column="1"
@@ -156,7 +156,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn32"
                     android:layout_width="0dp"
                     android:layout_column="2"
@@ -165,7 +165,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn16"
                     android:layout_width="0dp"
                     android:layout_column="3"
@@ -183,7 +183,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn4"
                     android:layout_width="0dp"
                     android:layout_column="5"
@@ -192,7 +192,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn2"
                     android:layout_width="0dp"
                     android:layout_column="6"
@@ -201,7 +201,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/headerTextSize" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/binarybtn1"
                     android:layout_width="0dp"
                     android:layout_column="7"
