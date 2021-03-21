@@ -76,8 +76,30 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".chapter2.computerscience">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter2.computerscience" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".chapter3.hardware">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter3.hardware" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".chapter4.computionalthinking">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter4.computionalthinking" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".chapter4.binarygame.binarygame">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter4.binarygame.binarygame" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

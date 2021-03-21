@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/loginCard"
+    app:cardCornerRadius="@dimen/loginCardRadius"
+    android:elevation="5dp"
+    android:layout_height="800dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/loginViewsMargin"
+    android:layout_marginBottom="@dimen/loginViewsMargin"
+    android:background="@color/whiteCardColor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/randomNumberToCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="133dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="111dp"
+            android:text="Berechne: 255"
+            android:textAlignment="center"
+            android:textColor="@color/spacebackground"
+            android:textSize="@dimen/headerTextSize"
+            app:layout_constraintBottom_toTopOf="@+id/binaryTable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:id="@+id/binaryTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/spacebackground"
+            android:stretchColumns="*"
+            app:layout_constraintBottom_toTopOf="@+id/calculatedNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/randomNumberToCalculate">
+
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/binary128"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:text="128"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary64"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:text="64"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary32"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:text="32"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:text="16"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:text="8"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:text="4"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="6"
+                    android:text="2"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <TextView
+                    android:id="@+id/binary1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="7"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="102dp"
+                android:background="@color/white">
+
+                <Button
+                    android:id="@+id/binarybtn128"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn64"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn32"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn16"
+                    android:layout_width="0dp"
+                    android:layout_column="3"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn8"
+                    android:layout_width="0dp"
+                    android:layout_column="4"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn4"
+                    android:layout_width="0dp"
+                    android:layout_column="5"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn2"
+                    android:layout_width="0dp"
+                    android:layout_column="6"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+
+                <Button
+                    android:id="@+id/binarybtn1"
+                    android:layout_width="0dp"
+                    android:layout_column="7"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/headerTextSize" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/calculatedNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="@dimen/resultsize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/binaryTable" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

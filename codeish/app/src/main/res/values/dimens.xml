@@ -8,5 +8,6 @@
     <dimen name="buttonheight">60dp</dimen>
     <dimen name="signup_text_margin_top">10dp</dimen>
     <dimen name="text">30sp</dimen>
+    <dimen name="resultsize">50sp</dimen>
 
 </resources>

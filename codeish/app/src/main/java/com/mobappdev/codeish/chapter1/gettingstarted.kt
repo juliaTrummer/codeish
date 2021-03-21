@@ -4,36 +4,29 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.MediaController
-import android.widget.VideoView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.video.Video
 
 class gettingstarted : AppCompatActivity() {
 
-    private lateinit var videoView: VideoView
-    private lateinit var mediaControls : MediaController
+    private val video = Video()
+    lateinit var nextButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.chapter1_gettingstarted)
+        setContentView(R.layout.layout_video)
+        nextButton = findViewById(R.id.next)
+        findViewById<TextView>(R.id.headerintro).setText("KAPITEL 1 - Lass uns anfangen!")
 
-        videoView = findViewById(R.id.videoView)
-        mediaControls = MediaController(this)
-        mediaControls.setAnchorView(videoView)
+        video.updateVideoView(Uri.parse("https://cdn.videvo.net/videvo_files/video/free/" +
+                "2012-07/small_watermarked/Countdown%20Timer_preview.webm"),
+        this,
+                findViewById(R.id.videoView))
 
-        val onlineUri = Uri.parse("https://cdn.videvo.net/videvo_files/video/free/2012-07/small_watermarked/Countdown%20Timer_preview.webm")
-
-        videoView.setMediaController(mediaControls)
-        videoView.setVideoURI(onlineUri)
-        videoView.requestFocus()
-        videoView.start()
-
-        val nextButton : Button = findViewById<Button>(R.id.next)
         nextButton.setOnClickListener {
-            val intent = Intent(this, itemquiz::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, itemquiz::class.java))
         }
-
     }
 }

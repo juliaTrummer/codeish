@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.awesomedialog.*
 import com.google.android.gms.tasks.Task
@@ -139,18 +140,30 @@ class QuestionList : AppCompatActivity() {
             if(questionCounter>=questiongroups.size){
                 AwesomeDialog.build(context as Activity)
                         .title("Toll gemacht!")
-                        .icon(R.drawable.ic_congrts)
+                        .position(AwesomeDialog.POSITIONS.CENTER)
+                        .icon(R.drawable.coin)
                         .onPositive("Zurück zu den Themen!") {
                             val intent = Intent(context, mainView::class.java)
                             context.startActivity(intent)
+                        }
+            }else{
+                AwesomeDialog.build(context as Activity)
+                        .title("Toll gemacht!")
+                        .icon(R.drawable.ic_congrts)
+                        .position(AwesomeDialog.POSITIONS.CENTER)
+                        .onPositive("Weiter zur nächsten Frage!") {
+
                         }
             }
         }else{
             Log.d(ContentValues.TAG, "Fail: Selected wrong answer")
             AwesomeDialog.build(context as Activity)
-                    .title("Oh Nein...")
+                    .title("Oh Nein")
                     .icon(R.drawable.ic_error_)
-                    .onPositive("Versuche es noch einmal!")
+                    .position(AwesomeDialog.POSITIONS.CENTER)
+                    .onPositive("Versuche es noch einmal.") {
+
+                    }
         }
 
     }
