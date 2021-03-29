@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -7,71 +7,133 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:layout_centerHorizontal="true"
-
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    app:cardElevation="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/item_shop_linlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ImageView
+            android:id="@+id/item_shop_img"
             android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:src="@drawable/earth"
+            android:layout_height="450dp"
+            android:contentDescription="world"
             android:scaleType="centerCrop"
-            android:contentDescription="world" />
-        <LinearLayout
+            android:src="@drawable/earth" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
             <!-- Title, secondary and supporting text -->
+
             <TextView
                 android:id="@+id/item_shop_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="200dp"
                 android:text="Title"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/headerTextSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/item_shop_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Subtext"
+                android:text="@string/spaceholder"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="@dimen/text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_shop_title"
+                app:layout_constraintVertical_bias="0.294" />
+
             <TextView
-                android:id="@+id/item_shop_description2"
+                android:id="@+id/item_shop_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="SubText2"
+
+                android:layout_marginStart="650dp"
+                android:layout_marginEnd="8dp"
+                android:text="Preis"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary" />
-        </LinearLayout>
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="@dimen/text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_shop_description" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/item_shop_price"
+                android:src="@drawable/coin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_shop_price"
+                app:layout_constraintTop_toBottomOf="@+id/item_shop_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp">
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buyButton"
+                android:id="@+id/item_shop_btn"
+                android:textSize="@dimen/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="action1"
-                style="?attr/borderlessButtonStyle" />
+                android:text="Kaufen"
+                style="?attr/borderlessButtonStyle"
+                app:icon="@drawable/ic_baseline_shopping_basket_24"/>
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/item_shop_btn2"
+                android:textSize="@dimen/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="action2"
+                android:text="Ansehen"
+                app:icon="@drawable/ic_remove_red_eye_24px"
                 style="?attr/borderlessButtonStyle" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:indeterminateTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobappdev.codeish.mainView.mainView
+import com.mobappdev.codeish.profile.usercustoms
 import com.mobappdev.codeish.userdata.userSpecificData
 
 class RegisterActivity : AppCompatActivity() {
@@ -20,11 +21,14 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var userName:String
     private lateinit var email:String
     private lateinit var password:String
+    private lateinit var db: FirebaseFirestore
+    private var useruuid : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         findViewById<TextView>(R.id.alreadyAccountTextView).setOnClickListener {
             val intent = Intent("com.mobappdev.codeish.login.LoginActivity")
@@ -42,19 +46,13 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Checks for logged in user and skips registration screen
-     */
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
             var profession : String? = loadPreferences()
             if(profession!=null && !profession.equals("")){
-                if(profession.equals("student")){
-                    val intent = Intent(this, mainView::class.java)
-                    startActivity(intent)
-                }else if(profession.equals("teacher")){
+                if(profession.equals("student")||profession.equals("teacher")) {
                     val intent = Intent(this, mainView::class.java)
                     startActivity(intent)
                 }
@@ -68,7 +66,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun loadPreferences() : String?{
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val keys: Map<String, *> = sharedPreference.all
-        return keys.get("PROFESSION").toString()
+        getUserCustomsAndCoins()
+        return keys["PROFESSION"].toString()
     }
 
     private fun closeKeyboard() {
@@ -80,10 +79,6 @@ class RegisterActivity : AppCompatActivity() {
         )
     }
 
-    /**
-     * Firebase Authentication
-     * registration
-     */
     private fun createAccount() {
         //progressBar = findViewById(R.id.progressBarRegister)
         //progressBar?.visibility = View.VISIBLE
@@ -96,11 +91,9 @@ class RegisterActivity : AppCompatActivity() {
             progressBar?.visibility = View.INVISIBLE
             return
         }
-
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Log.d("register activity", "createUserWithEmail:success")
                         saveUserToDB(userName, email)
                         val intent = Intent(this, userSpecificData::class.java)
                         intent.putExtra("username", userName)
@@ -108,16 +101,10 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
-                            .show()
                     progressBar?.visibility = View.INVISIBLE
                 }
     }
 
-    /**
-     * Checks for invalid or missing input
-     * returns TRUE for invalid input
-     */
     private fun hasInputValidationError():Boolean{
         var validationError = false
 
@@ -133,25 +120,20 @@ class RegisterActivity : AppCompatActivity() {
             findViewById<EditText>(R.id.passwordRegisterEditText).error = "Your password must have at least 6 characters."
             validationError = true
         }
-
         return validationError
     }
 
-    /**
-     * Firebase Firestore
-     * stores user in db
-     * collection: users, document: userId
-     */
     private fun saveUserToDB(userName: String, email: String) {
-        val db : FirebaseFirestore = FirebaseFirestore.getInstance();
+        val db : FirebaseFirestore = FirebaseFirestore.getInstance()
         val user = hashMapOf(
                 "id" to auth.uid,
                 "username" to userName,
                 "email" to email
         )
-
         val userId = auth.uid
-
+        if (userId != null) {
+            useruuid = userId
+        }
         if (userId != null) {
             db.collection("users").document(userId)
                     .set(user)
@@ -162,5 +144,34 @@ class RegisterActivity : AppCompatActivity() {
                         Log.i("Register Activity", "Error adding user", e)
                     }
         }
+    }
+
+    private fun getUserCustomsAndCoins(){
+        db.collection("collectionPath")
+            .get()
+            .addOnSuccessListener { result ->
+                Log.w("Register", "Success getting documents")
+                for (document in result) {
+                    val currentDbObject = document.toObject(usercustoms::class.java)
+                    savePreferences(currentDbObject.coins, currentDbObject.customizations)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("Resgister", "Error getting documents: ", exception)
+            }
+    }
+
+    private fun savePreferences(coins:Int, customizations:Array<String>?){
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        var customSet = HashSet<String>()
+        if (customizations != null) {
+            for(customs in customizations){
+                customSet.add(customs)
+            }
+            editor.putStringSet("CUSTOMS", customSet)
+        }
+        editor.putInt("COINS",coins)
+        editor.apply()
     }
 }

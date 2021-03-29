@@ -27,7 +27,6 @@ import com.mobappdev.codeish.mainView.mainView
 
 class QuestionList : AppCompatActivity() {
 
-    private var db : FirebaseFirestore? = null
     private var progressBar: ProgressBar? = null
     private var trueQuestions: MutableList<Question> = ArrayList()
     private var falseQuestions: MutableList<Question> = ArrayList()
@@ -37,9 +36,10 @@ class QuestionList : AppCompatActivity() {
     private var questionList : MutableList<Question> = ArrayList()
     private var questionCounter : Int = 0
     private var storageString : String = ""
-    lateinit var header : TextView
-    lateinit var context : Context
-    lateinit var storage : FirebaseStorage
+    private lateinit var db : FirebaseFirestore
+    private lateinit var header : TextView
+    private lateinit var context : Context
+    private lateinit var storage : FirebaseStorage
 
     fun generateQuestions(progressBar: ProgressBar, imageViews : MutableList<ImageButton>,
                           textViews:MutableList<TextView>, header: TextView, storageString:String,
@@ -53,7 +53,6 @@ class QuestionList : AppCompatActivity() {
         this.header = header
         this.storageString  = storageString
         storage = FirebaseStorage.getInstance()
-
         getAllQuestions(collectionPath)
     }
 
@@ -91,9 +90,9 @@ class QuestionList : AppCompatActivity() {
     }
 
     private fun getAllQuestions(collectionPath: String){
-        db?.collection(collectionPath)
-            ?.get()
-            ?.addOnSuccessListener { result ->
+        db.collection(collectionPath)
+            .get()
+            .addOnSuccessListener { result ->
                 Log.w("QuestionList", "Success getting documents")
                 for (document in result) {
                     val currentDbObject = document.toObject(Question::class.java)
@@ -105,13 +104,13 @@ class QuestionList : AppCompatActivity() {
                     addimagesToView()
                 }
             }
-            ?.addOnFailureListener { exception ->
+            .addOnFailureListener { exception ->
                 Log.w("QuestionList", "Error getting documents: ", exception)
             }
     }
 
     private fun addimagesToView() {
-        if(questiongroups!=null && questiongroups.size!=0 && questionCounter<questiongroups.size){
+        if(questiongroups.size!=0 && questionCounter<questiongroups.size){
             var qg = questiongroups[questionCounter]
             header.setText("Frage ${questionCounter + 1}")
             for (i in 0..2){
