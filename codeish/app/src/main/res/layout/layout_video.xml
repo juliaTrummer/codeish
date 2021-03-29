@@ -18,7 +18,7 @@
         <RelativeLayout
             style="@style/parent"
             android:layout_weight="3"
-            android:background="@drawable/video_header_shape"
+            android:background="@drawable/login_shape_bk"
             android:orientation="vertical">
 
             <ImageView

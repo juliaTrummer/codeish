@@ -8,11 +8,9 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.res.ResourcesCompat
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.mainView.mainView
-import com.mobappdev.codeish.userdata.userSpecificData
 import www.sanju.motiontoast.MotionToast
 
 class LoginActivity : AppCompatActivity() {
@@ -64,7 +62,6 @@ class LoginActivity : AppCompatActivity() {
         email = findViewById<EditText>(R.id.emailLoginEditText).text.toString()
         password = findViewById<EditText>(R.id.passwordLoginEditText).text.toString()
 
-
         if (hasInputValidationError()) {
             progressBar?.visibility = View.INVISIBLE
             return
@@ -97,14 +94,13 @@ class LoginActivity : AppCompatActivity() {
         var validationError = false
 
         if (email.isEmpty()) {
-            findViewById<TextInputEditText>(R.id.emailLoginEditText).error = "Please enter text for an email address."
+            findViewById<EditText>(R.id.emailLoginEditText).error = "Please enter text for an email address."
             validationError = true
         }
         if (password.length < 6) {
-            findViewById<TextInputEditText>(R.id.passwordLoginEditText).error = "Your password must have at least 6 characters."
+            findViewById<EditText>(R.id.passwordLoginEditText).error = "Your password must have at least 6 characters."
             validationError = true
         }
-
         return validationError
     }
 }

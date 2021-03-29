@@ -15,6 +15,7 @@ class itemquiz : AppCompatActivity() {
     private val questions = QuestionList()
     var imageViews : MutableList<ImageButton> = ArrayList()
     var textViews : MutableList<TextView> = ArrayList()
+    lateinit var collectionPath : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,7 @@ class itemquiz : AppCompatActivity() {
 
         val progressBar : ProgressBar = findViewById(R.id.progressBar)
         val header : TextView = findViewById(R.id.header)
-        val storageString : String = "gettingstarted/"
+        var storageString : String = ""
 
         imageViews = ArrayList()
         imageViews.add(findViewById(R.id.imageButton0))
@@ -33,7 +34,18 @@ class itemquiz : AppCompatActivity() {
         textViews.add(findViewById(R.id.nametag1))
         textViews.add(findViewById(R.id.nametag2))
 
+        if(intent.getStringExtra("collectionPath")!=null){
+            collectionPath = intent.getStringExtra("collectionPath")
+            storageString = intent.getStringExtra("storageString")
+            if(collectionPath.contains("hardware")){
+                findViewById<TextView>(R.id.whattodotext).setText("Wähle Hardware aus!")
+            }
+        }else{
+            collectionPath = ""
+            storageString = ""
+        }
+
         questions.generateQuestions(progressBar, imageViews, textViews, header, storageString,
-            this)
+            this, collectionPath)
     }
 }

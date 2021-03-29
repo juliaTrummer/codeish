@@ -8,17 +8,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mobappdev.codeish.MainActivity
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.dao.UserDataObject
 import com.mobappdev.codeish.mainView.mainView
-import org.w3c.dom.Text
 import www.sanju.motiontoast.MotionToast
 
 

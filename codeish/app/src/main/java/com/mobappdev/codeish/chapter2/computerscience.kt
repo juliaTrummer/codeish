@@ -1,13 +1,11 @@
 package com.mobappdev.codeish.chapter2
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
 import com.mobappdev.codeish.video.Video
 
 class computerscience : AppCompatActivity() {
@@ -26,8 +24,5 @@ class computerscience : AppCompatActivity() {
         this,
                 findViewById(R.id.videoView))
 
-        nextButton.setOnClickListener {
-            startActivity(Intent(this, itemquiz::class.java))
-        }
     }
 }

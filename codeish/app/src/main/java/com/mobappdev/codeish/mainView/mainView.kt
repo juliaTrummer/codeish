@@ -13,7 +13,7 @@ import com.mobappdev.codeish.R
 import com.mobappdev.codeish.chapter1.gettingstarted
 import com.mobappdev.codeish.chapter2.computerscience
 import com.mobappdev.codeish.chapter3.hardware
-import com.mobappdev.codeish.chapter4.computionalthinking
+import com.mobappdev.codeish.chapter4.databitsdigitization
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
 import com.mobappdev.codeish.profile.Profile
@@ -41,7 +41,7 @@ class mainView : AppCompatActivity() {
         navview.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.item1 -> {
-                    val intent = Intent(this, Shop::class.java)
+                    val intent = Intent(this, Profile::class.java)
                     startActivity(intent)
                 }
                 R.id.item2 -> {
@@ -49,7 +49,7 @@ class mainView : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.item3 -> {
-                    val intent = Intent(this, Profile::class.java)
+                    val intent = Intent(this, Shop::class.java)
                     startActivity(intent)
                 }
             }
@@ -92,12 +92,12 @@ class mainView : AppCompatActivity() {
                     Intent(this, hardware::class.java)),
                 Topic(resources.getString(R.string.header4),
                     "test",
-                    "Weißt du schon wie ein Computer Probleme löst?",
+                    "Hast du schon mal von dem Wort DATEN gehört?",
                     R.drawable.gst,
-                    Intent(this, computionalthinking::class.java)),
+                    Intent(this, databitsdigitization::class.java)),
                 Topic(resources.getString(R.string.header5),
                     "test",
-                    "Hast du schon mal von dem Wort DATEN gehört?",
+                    "Weißt du schon wie ein Computer Probleme löst?",
                     R.drawable.gst,
                     Intent(this, gettingstarted::class.java)),
                 Topic(resources.getString(R.string.header6),

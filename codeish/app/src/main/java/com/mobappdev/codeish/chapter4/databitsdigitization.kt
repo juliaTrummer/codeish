@@ -7,11 +7,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
 import com.mobappdev.codeish.chapter4.binarygame.binarygame
 import com.mobappdev.codeish.video.Video
 
-class computionalthinking : AppCompatActivity() {
+class databitsdigitization : AppCompatActivity() {
 
     private val video = Video()
     lateinit var nextButton: Button

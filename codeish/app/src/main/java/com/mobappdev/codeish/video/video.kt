@@ -1,16 +1,10 @@
 package com.mobappdev.codeish.video
 
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
-import android.widget.Button
 import android.widget.MediaController
-import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
 
 class Video : AppCompatActivity() {
 

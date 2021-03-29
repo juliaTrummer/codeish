@@ -28,7 +28,10 @@ class hardware : AppCompatActivity() {
                 findViewById(R.id.videoView))
 
         nextButton.setOnClickListener {
-            startActivity(Intent(this, itemquiz::class.java))
+            val activity = Intent(this, itemquiz::class.java)
+            activity.putExtra("collectionPath", "hardware")
+            activity.putExtra("storageString", "hardware/")
+            startActivity(activity)
         }
     }
 }

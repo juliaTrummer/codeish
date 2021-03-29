@@ -13,12 +13,14 @@
     <string name="filler">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At </string>
 
+    <string name="email">Email</string>
+    <string name="username">Bentuzername</string>
 
     <string name="header1">Die Reise beginnt!</string>
     <string name="header2">Was ist Informatik?</string>
     <string name="header3">Hardware</string>
-    <string name="header4">Wie denkt ein Computer eigentlich?</string>
-    <string name="header5">Was sind Daten?</string>
+    <string name="header4">Was sind Daten?</string>
+    <string name="header5">Wie denkt ein Computer eigentlich?</string>
     <string name="header6">Lass uns Programmieren!</string>
     <string name="header7">Es gibt noch mehr!</string>
     <string name="header8">Bist du ein  Profi?</string>

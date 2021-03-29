@@ -12,7 +12,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -24,9 +23,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.StorageReference
 import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
 import com.mobappdev.codeish.mainView.mainView
-import javax.sql.DataSource
 
 class QuestionList : AppCompatActivity() {
 
@@ -46,7 +43,7 @@ class QuestionList : AppCompatActivity() {
 
     fun generateQuestions(progressBar: ProgressBar, imageViews : MutableList<ImageButton>,
                           textViews:MutableList<TextView>, header: TextView, storageString:String,
-                          context : Context){
+                          context : Context, collectionPath:String){
         db = FirebaseFirestore.getInstance()
         this.progressBar = progressBar
         progressBar.visibility = View.VISIBLE
@@ -57,7 +54,7 @@ class QuestionList : AppCompatActivity() {
         this.storageString  = storageString
         storage = FirebaseStorage.getInstance()
 
-        getAllQuestions()
+        getAllQuestions(collectionPath)
     }
 
     private fun generateTrueFalseList(){
@@ -77,7 +74,6 @@ class QuestionList : AppCompatActivity() {
         if(questiongroups.size==0){
             for (trueQuestion in trueQuestions){
                 if(counter < falseQuestions.size-1){
-                    //TODO: Randomize Questions
                     randomizeQuestions(counter, trueQuestion)
                     counter+=2
                 }
@@ -94,8 +90,8 @@ class QuestionList : AppCompatActivity() {
         }
     }
 
-    private fun getAllQuestions(){
-        db?.collection("questions")
+    private fun getAllQuestions(collectionPath: String){
+        db?.collection(collectionPath)
             ?.get()
             ?.addOnSuccessListener { result ->
                 Log.w("QuestionList", "Success getting documents")

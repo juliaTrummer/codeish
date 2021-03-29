@@ -1,22 +1,11 @@
 package com.mobappdev.codeish.chapter4.binarygame
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextClock
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
-import androidx.lifecycle.Observer
 import com.example.awesomedialog.*
 import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
-import com.mobappdev.codeish.video.Video
-import org.w3c.dom.Text
-import www.sanju.motiontoast.MotionToast
-import kotlin.properties.Delegates
 
 class binarygame : AppCompatActivity() {
 
