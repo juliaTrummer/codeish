@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.mobappdev.codeish.R
-import com.mobappdev.codeish.chapter1.itemquiz
 import com.mobappdev.codeish.video.Video
 
 class encryption : AppCompatActivity() {
@@ -31,7 +30,7 @@ class encryption : AppCompatActivity() {
         )
 
         nextButton.setOnClickListener {
-            val activity = Intent(this, ::class.java)
+            val activity = Intent(this, ciper_game::class.java)
             startActivity(activity)
         }
     }
