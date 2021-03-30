@@ -29,23 +29,26 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_drawer_menu"
         android:fitsSystemWindows="true"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         app:itemTextAppearance="@style/menu_text_style">
 
         <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@drawable/itemcolor5">
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            android:text="Username" />
+            android:text="Hallo!"
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/professiontext"
@@ -55,8 +58,9 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="@color/material_on_surface_emphasis_medium"
-            android:text="Text keine ahnung " />
+            android:textColor="@color/white"
+            android:text="Hier findest du deine Einstelungen, Informationen und den Shop!"
+            android:textSize="18sp" />
     </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>

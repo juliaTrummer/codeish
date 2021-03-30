@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rvShop"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    app:spanCount="2">
 
-</androidx.recyclerview.widget.RecyclerView>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constL1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="240sp"
+        android:layout_alignParentTop="true"
+        android:weightSum="12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+
+            style="@style/parent"
+            android:layout_weight="3"
+            android:background="@drawable/login_shape_bk"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/parent"
+                android:layout_width="match_parent"
+                android:layout_height="240sp"
+                android:background="@drawable/ic_login_bk"
+                android:contentDescription="background" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="SHOP"
+        android:textAlignment="center"
+        android:textSize="@dimen/headerTextSize"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@id/constL1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/coindisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="650dp"
+        android:layout_marginBottom="150dp"
+        android:text="______"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/headerTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/coin"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="150dp"
+        android:src="@drawable/coin"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toEndOf="@+id/coindisplay"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:spanCount="2"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

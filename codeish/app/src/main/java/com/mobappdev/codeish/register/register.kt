@@ -147,13 +147,13 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun getUserCustomsAndCoins(){
-        db.collection("collectionPath")
+        db.collection("usercustoms")
             .get()
             .addOnSuccessListener { result ->
                 Log.w("Register", "Success getting documents")
                 for (document in result) {
                     val currentDbObject = document.toObject(usercustoms::class.java)
-                    savePreferences(currentDbObject.coins, currentDbObject.customizations)
+                    savePreferences(currentDbObject.coins, currentDbObject.customisations)
                 }
             }
             .addOnFailureListener { exception ->
@@ -161,7 +161,8 @@ class RegisterActivity : AppCompatActivity() {
             }
     }
 
-    private fun savePreferences(coins:Int, customizations:Array<String>?){
+    private fun savePreferences(coins:Int, customizations:MutableList<String>?){
+        var actualcoins = 0
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         var customSet = HashSet<String>()
@@ -171,7 +172,8 @@ class RegisterActivity : AppCompatActivity() {
             }
             editor.putStringSet("CUSTOMS", customSet)
         }
-        editor.putInt("COINS",coins)
-        editor.apply()
+        actualcoins += coins
+        editor.putInt("COINS", actualcoins)
+        editor.commit()
     }
 }

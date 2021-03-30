@@ -14,6 +14,7 @@ import com.mobappdev.codeish.chapter1.gettingstarted
 import com.mobappdev.codeish.chapter2.computerscience
 import com.mobappdev.codeish.chapter3.hardware
 import com.mobappdev.codeish.chapter4.databitsdigitization
+import com.mobappdev.codeish.chapter5.encryption
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
 import com.mobappdev.codeish.profile.Profile
@@ -97,9 +98,9 @@ class mainView : AppCompatActivity() {
                     Intent(this, databitsdigitization::class.java)),
                 Topic(resources.getString(R.string.header5),
                     "test",
-                    "Weißt du schon wie ein Computer Probleme löst?",
+                    "Jeder kann geheime Botschaften versenden! Versuche es selbst.",
                     R.drawable.gst,
-                    Intent(this, gettingstarted::class.java)),
+                    Intent(this, encryption::class.java)),
                 Topic(resources.getString(R.string.header6),
                     "test",
                     "Ich möchte das Programmieren gerne selber ausprobieren!",
