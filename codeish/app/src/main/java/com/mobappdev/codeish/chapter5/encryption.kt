@@ -18,7 +18,7 @@ class encryption : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_video)
         nextButton = findViewById(R.id.next)
-        findViewById<TextView>(R.id.headerintro).setText("KAPITEL 3 - Hardware")
+        findViewById<TextView>(R.id.headerintro).setText("KAPITEL 4 - Verschlüsselung")
 
         video.updateVideoView(
             Uri.parse(

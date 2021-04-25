@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobappdev.codeish.R
 
 
+class TopicList (private val mTopics: List<Topic>, val context : Context) : RecyclerView.Adapter<TopicList.ViewHolder>() {
 
-class TopicList (private val mTopics: List<Topic>, val context : Context) : RecyclerView.Adapter<TopicList.ViewHolder>()
-{
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val title = itemView.findViewById<TextView>(R.id.item_title)
         val desc = itemView.findViewById<TextView>(R.id.item_description)

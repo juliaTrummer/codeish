@@ -24,6 +24,7 @@ class gettingstarted : AppCompatActivity() {
                 "2012-07/small_watermarked/Countdown%20Timer_preview.webm"),
         this,
                 findViewById(R.id.videoView))
+        
 
         nextButton.setOnClickListener {
             val activity = Intent(this, itemquiz::class.java)

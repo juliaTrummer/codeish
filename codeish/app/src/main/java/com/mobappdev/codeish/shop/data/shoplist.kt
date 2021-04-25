@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
@@ -18,8 +17,6 @@ import com.bumptech.glide.request.target.Target
 import com.example.awesomedialog.*
 import com.google.firebase.storage.FirebaseStorage
 import com.mobappdev.codeish.R
-import org.w3c.dom.Text
-import www.sanju.motiontoast.MotionToast
 
 class ShopList (private val mShopItems: List<ShopItem>, val context : Context, val displaycoins:TextView) : RecyclerView.Adapter<ShopList.ViewHolder>()
 {

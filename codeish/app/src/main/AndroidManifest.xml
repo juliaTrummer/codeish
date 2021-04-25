@@ -100,6 +100,30 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".chapter5.ciper_game">
+        <intent-filter>
+            <action android:name="com.mobappdev.chapter4.binarygame.binarygame" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".chapter5.encryption">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter4.binarygame.binarygame" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".accomplishment.Accomplishments">
+            <intent-filter>
+                <action android:name="com.mobappdev.accomplishment.Accomplishments" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".rankings.Ranking">
+            <intent-filter>
+                <action android:name="com.mobappdev.ranking.Ranking" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -23,7 +23,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="282dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:text="Sample Header"
             android:textColor="@color/whiteCardColor"
             android:textSize="40dp" />
@@ -40,18 +40,6 @@
             android:textSize="30dp"
             android:textColor="@color/whiteCardColor"
             />
-
-        <TextView
-            android:id="@+id/fincounter"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignRight="@+id/item_title"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="20dp"
-            android:text="1/10"
-            android:textColor="@color/whiteCardColor"/>
 
         <ImageView
             android:id="@+id/item_image"

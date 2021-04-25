@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import com.mobappdev.codeish.R
+import com.mobappdev.codeish.accomplishment.Accomplishments
+
 import com.mobappdev.codeish.chapter1.gettingstarted
 import com.mobappdev.codeish.chapter2.computerscience
 import com.mobappdev.codeish.chapter3.hardware
@@ -18,6 +20,7 @@ import com.mobappdev.codeish.chapter5.encryption
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
 import com.mobappdev.codeish.profile.Profile
+import com.mobappdev.codeish.rankings.Ranking
 import com.mobappdev.codeish.settings.Settings
 import com.mobappdev.codeish.shop.Shop
 
@@ -53,6 +56,14 @@ class mainView : AppCompatActivity() {
                     val intent = Intent(this, Shop::class.java)
                     startActivity(intent)
                 }
+                R.id.item4 -> {
+                    val intent = Intent(this, Ranking::class.java)
+                    startActivity(intent)
+                }
+                R.id.item5 -> {
+                    val intent = Intent(this, Accomplishments::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }
@@ -80,11 +91,6 @@ class mainView : AppCompatActivity() {
                     "Computer sind überall, nicht nur im Telefon und Laptops.",
                     R.drawable.gst,
                     Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header2),
-                    "test1",
-                    "Technologien und Magie!",
-                    R.drawable.gst,
-                    Intent(this, computerscience::class.java)),
                 Topic(resources.getString(R.string.header3),
                     "test",
                     "Was ist Hardware? Dieses englische Wort beschreibt alle Dinge " +
@@ -112,6 +118,11 @@ class mainView : AppCompatActivity() {
                             "um einen Computer Anweisungen zu geben?",
                     R.drawable.gst,
                     Intent(this, gettingstarted::class.java)),
+                Topic(resources.getString(R.string.header2),
+                    "test1",
+                    "Technologien und Magie!",
+                    R.drawable.gst,
+                    Intent(this, computerscience::class.java)),
                 Topic(resources.getString(R.string.header8),
                     "test",
                     "Kennst du dich mit Snapchat, " +
