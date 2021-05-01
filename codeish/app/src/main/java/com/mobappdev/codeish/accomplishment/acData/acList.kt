@@ -31,6 +31,15 @@ class AcList (private val mAccomplishments: List<Accomplishment>, val context : 
 
     override fun onBindViewHolder(holder: AcList.ViewHolder, position: Int) {
         val ac: Accomplishment = mAccomplishments.get(position)
+        if(position == 1){
+            holder.badgeimg.setImageResource(R.drawable.gold)
+        }else if(position == 2){
+            holder.badgeimg.setImageResource(R.drawable.sliver)
+        }else if(position == 3){
+            holder.badgeimg.setImageResource(R.drawable.copper)
+        } else if(position == 4){
+            holder.badgeimg.setImageResource(R.drawable.gold)
+        }
         holder.badgetitle.setText("${ac.title}")
     }
 

@@ -111,8 +111,8 @@ class mainView : AppCompatActivity() {
                     "test",
                     "Ich möchte das Programmieren gerne selber ausprobieren!",
                     R.drawable.gst,
-                    Intent(this, gettingstarted::class.java)),
-                Topic(resources.getString(R.string.header7),
+                    Intent(this, gettingstarted::class.java)))
+                /*Topic(resources.getString(R.string.header7),
                     "test",
                     "Hast du gewusst dass auch viele verschiedene Sprachen gibt, " +
                             "um einen Computer Anweisungen zu geben?",
@@ -129,5 +129,6 @@ class mainView : AppCompatActivity() {
                             "Instagram und Tiktok aus?",
                     R.drawable.gst,
                     Intent(this, gettingstarted::class.java)))
+                 */
     }
 }
