@@ -116,7 +116,7 @@ class binarygame : AppCompatActivity() {
     private fun checkForRightResult(){
         if (calcResult == numberToBeCalculate){
             AwesomeDialog.build(this)
-                    .title("Toll gemacht!")
+                    .title("Toll gemacht! \nDu bekommst 100 COINS!")
                     .icon(R.drawable.ic_congrts)
                     .position(AwesomeDialog.POSITIONS.CENTER)
                     .onPositive("Weiter zum nächsten Beispiel!") {
