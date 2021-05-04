@@ -14,17 +14,16 @@
     <LinearLayout
         android:id="@+id/badge_linlayout1"
         android:layout_width="match_parent"
-        android:layout_height="704dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/badge"
-            android:layout_width="668dp"
-            android:layout_height="598dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_width="751dp"
+            android:layout_height="492dp"
             android:contentDescription="emptyBadge"
             android:scaleType="center"
+            android:layout_gravity="center"
             android:src="@drawable/basebadge" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

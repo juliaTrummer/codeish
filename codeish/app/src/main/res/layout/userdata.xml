@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
@@ -50,7 +50,7 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="13dp"
-        android:text="Ich bin... "
+        android:text="Ich bin ..."
         android:textColor="@color/whiteCardColor"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/studentbutton"
@@ -61,13 +61,14 @@
     <TextView
         android:id="@+id/greeting2"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="50dp"
+        android:textAlignment="center"
         android:text="Hallo ..."
         android:textColor="@color/whiteCardColor"
-        android:textSize="50sp"
+        android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
