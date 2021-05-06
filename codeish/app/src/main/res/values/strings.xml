@@ -34,4 +34,11 @@
 
     <string name="open">open</string>
     <string name="close">close</string>
+
+    <string name="questionmark">?</string>
+    <string name="fillerstring">orem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+        feugiat, enim sed sagittis auctor, urna orci iaculis magna, in semper justo erat sit amet
+        erat. Pellentesque justo nisi, ullamcorper a condimentum quis, blandit sit amet massa.
+        </string>
+
 </resources>

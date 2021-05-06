@@ -49,6 +49,22 @@
         </RelativeLayout>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/questBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/questionmark"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.555" />
+
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
@@ -58,7 +74,7 @@
         app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/questBtn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next"

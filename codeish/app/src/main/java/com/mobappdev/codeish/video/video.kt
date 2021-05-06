@@ -1,10 +1,13 @@
 package com.mobappdev.codeish.video
 
 import android.content.Context
+import android.content.DialogInterface
 import android.net.Uri
-import android.widget.MediaController
-import android.widget.VideoView
+import android.text.InputType
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.mobappdev.codeish.R
+import org.w3c.dom.Text
 
 class Video : AppCompatActivity() {
 
@@ -28,4 +31,5 @@ class Video : AppCompatActivity() {
         videoView.requestFocus()
         videoView.start()
     }
+
 }

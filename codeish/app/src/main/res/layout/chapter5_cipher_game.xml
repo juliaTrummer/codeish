@@ -45,10 +45,11 @@
 
     <com.lukedeighton.wheelview.WheelView
         android:id="@+id/wheelview"
-        android:layout_width="898dp"
-        android:layout_height="733dp"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        android:layout_width="match_parent"
+        android:layout_height="736dp"
         android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/generatedWord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +68,7 @@
         android:layout_width="500dp"
         android:layout_height="500dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        app:flow_horizontalAlign="center"
         android:layout_marginStart="71dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="71dp"
@@ -77,65 +78,77 @@
         app:layout_constraintStart_toStartOf="@+id/wheelview"
         app:layout_constraintTop_toTopOf="@+id/wheelview" />
 
-    <TextView
-        android:id="@+id/generatedWord"
-        android:layout_width="550dp"
-        android:layout_height="60dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flow_horizontalAlign="center"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="_ _ _ _ _ _"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/headerTextSize"
-        app:layout_constraintEnd_toStartOf="@+id/hintBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wheelview" />
-
-    <TextView
-        android:id="@+id/textViewHint"
-        android:layout_width="550dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="120dp"
-        android:text="_ _ _ _ _ _"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/headerTextSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/answerBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generatedWord" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/hintBtn"
-        android:layout_width="260dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="18dp"
-        android:text="Hinweis"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text"
-        app:layout_constraintBottom_toTopOf="@+id/answerBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/generatedWord"
-        app:layout_constraintTop_toBottomOf="@+id/wheelview" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/answerBtn"
-        android:layout_width="260dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="120dp"
-        android:text="Antworten"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewHint"
-        app:layout_constraintTop_toBottomOf="@+id/hintBtn" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wheelview">
+
+
+        <TextView
+            android:id="@+id/generatedWord"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
+            android:text="_ _ _ _ _ _"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/headerTextSize"
+            app:layout_constraintBottom_toTopOf="@+id/textViewHint"
+            app:layout_constraintEnd_toStartOf="@+id/hintBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewHint"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginBottom="6dp"
+            android:text="_ _ _ _ _ _"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/headerTextSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/answerBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/generatedWord" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hintBtn"
+            android:layout_width="260dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
+            android:text="Hinweis"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            app:layout_constraintBottom_toTopOf="@+id/answerBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/generatedWord"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/answerBtn"
+            android:layout_width="260dp"
+            android:layout_height="69dp"
+            android:text="Antworten"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewHint"
+            app:layout_constraintTop_toBottomOf="@+id/hintBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
