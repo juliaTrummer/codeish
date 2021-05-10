@@ -48,7 +48,8 @@ class Settings : AppCompatActivity() {
             db.collection("users").document(userId)
                     .get()
                     .addOnSuccessListener { result ->
-                        Log.i("Logout", "Getting userdata was successful")
+                        Log.i("Logout", "Success")
+                        //saveDataFromSharedPrefs();
                         findViewById<TextView>(R.id.displayusername).text = result.getString("username")
                         findViewById<EditText>(R.id.changeUsername).setText(result.getString("username"))
                         findViewById<EditText>(R.id.changeEmail).setText(result.getString("email"))

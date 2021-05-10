@@ -17,6 +17,7 @@ import com.mobappdev.codeish.chapter2.computerscience
 import com.mobappdev.codeish.chapter3.hardware
 import com.mobappdev.codeish.chapter4.databitsdigitization
 import com.mobappdev.codeish.chapter5.encryption
+import com.mobappdev.codeish.chapter6.codingNI
 import com.mobappdev.codeish.mainView.data.Topic
 import com.mobappdev.codeish.mainView.data.TopicList
 import com.mobappdev.codeish.profile.Profile
@@ -111,7 +112,7 @@ class mainView : AppCompatActivity() {
                     "test",
                     "Ich möchte das Programmieren gerne selber ausprobieren!",
                     R.drawable.gst,
-                    Intent(this, gettingstarted::class.java)))
+                    Intent(this, codingNI::class.java)))
                 /*Topic(resources.getString(R.string.header7),
                     "test",
                     "Hast du gewusst dass auch viele verschiedene Sprachen gibt, " +

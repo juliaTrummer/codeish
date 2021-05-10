@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.awesomedialog.*
 import com.mobappdev.codeish.R
 import com.mobappdev.codeish.video.Video
 
@@ -14,15 +15,19 @@ class gettingstarted : AppCompatActivity() {
 
     private val video = Video()
     lateinit var nextButton: Button
+    lateinit var questBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_video)
         nextButton = findViewById(R.id.next)
+        questBtn = findViewById(R.id.questBtn)
         findViewById<TextView>(R.id.headerintro).setText("KAPITEL 1 - Lass uns anfangen!")
 
-        video.updateVideoView(Uri.parse("https://cdn.videvo.net/videvo_files/video/free/" +
-                "2012-07/small_watermarked/Countdown%20Timer_preview.webm"),
+        video.updateVideoView("<iframe width=\"800\" height=\"500\" " +
+                "src=\"https://www.youtube.com/embed/FFrTc5mm0MU\" title=\"YouTube video player\" " +
+                "frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; " +
+                "encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
         this,
                 findViewById(R.id.videoView))
         
@@ -38,19 +43,15 @@ class gettingstarted : AppCompatActivity() {
             showdialog()
         }
     }
-    fun showdialog(){
-        val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
-        builder.setTitle("Gib das Lösungswort ein und klicke auf OK!")
-        val output = TextView(this)
-        output.setText("orem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat, " +
-                "enim sed sagittis auctor, urna orci iaculis magna, in semper justo erat sit amet " +
-                "erat. Pellentesque justo nisi, ullamcorper a condimentum quis, blandit sit amet " +
-                "massa. Nam viverra tortor at ante ultricies, ut commodo est iaculis.")
-        builder.setView(output)
-        builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+    fun showdialog() {
+        AwesomeDialog.build(this)
+                .title("Es gibt verschiedene Computer. Manche dieser Computer sind riesig und manche ganz klein. \n" +
+                        "Normalerweise spricht man von einem Computer, wenn man über einen PC spricht. \n" +
+                        "Zuhause hat man viele Computer, wie ein Desktop Computer, ein Laptop oder ein Tablet aber auch dein Smartphone ist ein Computer. \n")
+                .icon(R.drawable.ic_warning_yellow)
+                .position(AwesomeDialog.POSITIONS.CENTER)
+                .onPositive("OK") {
 
-        })
-        builder.setNegativeButton("Abbrechen", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
-        builder.show()
+                }
     }
 }

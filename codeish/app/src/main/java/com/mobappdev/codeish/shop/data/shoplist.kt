@@ -4,7 +4,9 @@ import android.app.Activity
 import com.mobappdev.codeish.mainView.data.Topic
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.awesomedialog.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.mobappdev.codeish.R
 
@@ -24,6 +28,7 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
     private lateinit var customs : HashSet<String>
     private var userCoins : Int = 0
     private lateinit var coinsTextView : TextView
+    private lateinit var db : FirebaseFirestore
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val title = itemView.findViewById<TextView>(R.id.item_shop_title)
@@ -42,6 +47,7 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
         userCoins = loadPreferences()?.toInt()!!
         coinsTextView = displaycoins
         coinsTextView.setText("" + userCoins)
+        db = FirebaseFirestore.getInstance()
         val inflater = LayoutInflater.from(context)
         val topicView = inflater.inflate(R.layout.item_shop, parent, false)
         return ViewHolder(topicView)
@@ -68,6 +74,15 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
                 }.onNegative("NEIN"){
 
                 }
+        }
+
+        viewHolder.lookbtn.setOnClickListener(){
+            AwesomeDialog.build(context as Activity)
+                    .title("In Zukunft kannst du hier weitere Infos zu diesem Monster bekommen!")
+                    .icon(R.drawable.ic_remove_red_eye_24px)
+                    .position(AwesomeDialog.POSITIONS.CENTER)
+                    .onPositive("OK") {
+                    }
         }
 
         val image = viewHolder.image
@@ -139,9 +154,28 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
         val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         customs.add(customItem)
+        saveDataFromSharedPrefs(customs,coins)
         editor.putStringSet("CUSTOMS",customs)
         editor.putInt("COINS",coins)
         editor.commit()
+    }
+
+    private fun saveDataFromSharedPrefs(customs:HashSet<String>, coins:Int) {
+        val auth = FirebaseAuth.getInstance()
+        val userId = auth.uid
+
+        val usercustom = hashMapOf(
+                "coins" to coins,
+                "customisations" to customs.toMutableList(),
+                "userid" to userId
+        )
+
+        if (userId != null) {
+            db.collection("usercustoms").document(userId)
+                    .set(usercustom)
+                    .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully written!") }
+                    .addOnFailureListener { e -> Log.w("TAG", "Error writing document", e) }
+        }
     }
 
     private fun insertingImgWithGlide(img: ImageView, imgPath:String, progressBar:ProgressBar){

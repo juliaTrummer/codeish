@@ -1,6 +1,7 @@
 package com.mobappdev.codeish.chapter5
 
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -130,7 +131,17 @@ class ciper_game : AppCompatActivity() {
                         displayLenght=0
                         generateCipher()
                     }
+        addCoinsToSharedPrefs(100)
     }
+
+    private fun addCoinsToSharedPrefs(coins:Int){
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        val keys: Map<String, *> = sharedPreference.all
+        editor.putInt("COINS",keys["COINS"].toString().toInt() + coins)
+        editor.commit()
+    }
+
     private fun createFailedAwesomeDialog(){
         AwesomeDialog.build(this)
                 .title("Oh Nein! \nDas Wort ist nicht richtig.")

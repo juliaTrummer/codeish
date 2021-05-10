@@ -1,5 +1,6 @@
 package com.mobappdev.codeish.chapter4.binarygame
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -122,7 +123,16 @@ class binarygame : AppCompatActivity() {
                     .onPositive("Weiter zum nächsten Beispiel!") {
                         updateWithNextNumber()
                     }
+            addCoinsToSharedPrefs(100)
         }
+    }
+
+    private fun addCoinsToSharedPrefs(coins:Int){
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        val keys: Map<String, *> = sharedPreference.all
+        editor.putInt("COINS",keys["COINS"].toString().toInt() + coins)
+        editor.commit()
     }
 
     private fun updateWithNextNumber(){

@@ -112,6 +112,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".chapter6.codingNI">
+            <intent-filter>
+                <action android:name="com.mobappdev.chapter6.codingNI" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".accomplishment.Accomplishments">
             <intent-filter>
                 <action android:name="com.mobappdev.accomplishment.Accomplishments" />

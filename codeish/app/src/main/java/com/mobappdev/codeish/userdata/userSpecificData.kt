@@ -63,14 +63,6 @@ class userSpecificData : AppCompatActivity() {
                     .document()
                     .set(userData)
                     .addOnSuccessListener {
-                        MotionToast.createToast(this,
-                                "Hurra 😍",
-                                "Du bist nun angemeldet!",
-                                MotionToast.TOAST_SUCCESS,
-                                MotionToast.GRAVITY_BOTTOM,
-                                MotionToast.SHORT_DURATION,
-                                ResourcesCompat.getFont(this,R.font.helvetica_regular))
-                        Log.d(ContentValues.TAG, TAG + "SUCCESS: Saved userData successfully!")
                         val intent = Intent(this, mainView::class.java)
                         startActivity(intent)
                     }
