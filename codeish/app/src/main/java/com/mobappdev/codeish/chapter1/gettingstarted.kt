@@ -24,7 +24,7 @@ class gettingstarted : AppCompatActivity() {
         questBtn = findViewById(R.id.questBtn)
         findViewById<TextView>(R.id.headerintro).setText("KAPITEL 1 - Lass uns anfangen!")
 
-        video.updateVideoView("<iframe width=\"800\" height=\"500\" " +
+        video.updateVideoView("<iframe width=\"850\" height=\"450\" " +
                 "src=\"https://www.youtube.com/embed/FFrTc5mm0MU\" title=\"YouTube video player\" " +
                 "frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; " +
                 "encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",

@@ -30,7 +30,7 @@ class userSpecificData : AppCompatActivity() {
 
         var username : String? = intent.getStringExtra("username")
         if(username!=null){
-            findViewById<TextView>(R.id.greeting2).setText("Hello " + username + "!")
+            findViewById<TextView>(R.id.greeting2).setText("Hallo " + username + "!")
         }
 
         findViewById<Button>(R.id.studentbutton).setOnClickListener(){

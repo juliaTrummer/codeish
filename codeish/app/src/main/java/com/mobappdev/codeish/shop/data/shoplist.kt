@@ -120,7 +120,7 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
                 savePreferences(coins, imgPath)
                 coinsTextView.setText(coins.toString())
             }else{
-                createMotionDialog("Du hast " + name + " bereits gekauft!\n Sieh dir deine AlienFreunde im Profil an!", "OH NO!", R.drawable.ic_warning_yellow)
+                createMotionDialog("Du hast " + name + " bereits gekauft!\n Sieh dir deine AlienFreunde im Profil an!", "OH Nein...!", R.drawable.ic_warning_yellow)
             }
         }
     }

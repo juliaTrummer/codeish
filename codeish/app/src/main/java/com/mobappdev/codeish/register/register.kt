@@ -21,14 +21,12 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var userName:String
     private lateinit var email:String
     private lateinit var password:String
-    private lateinit var db: FirebaseFirestore
     private var useruuid : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         auth = FirebaseAuth.getInstance()
-        db = FirebaseFirestore.getInstance()
 
         findViewById<TextView>(R.id.alreadyAccountTextView).setOnClickListener {
             val intent = Intent("com.mobappdev.codeish.login.LoginActivity")
@@ -66,7 +64,6 @@ class RegisterActivity : AppCompatActivity() {
     private fun loadPreferences() : String?{
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val keys: Map<String, *> = sharedPreference.all
-        getUserCustomsAndCoins()
         return keys["PROFESSION"].toString()
     }
 
@@ -80,9 +77,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun createAccount() {
-        //progressBar = findViewById(R.id.progressBarRegister)
-        //progressBar?.visibility = View.VISIBLE
-
         userName = findViewById<EditText>(R.id.usernameRegisterEditText).text.toString()
         email = findViewById<EditText>(R.id.emailRegisterEditText).text.toString()
         password = findViewById<EditText>(R.id.passwordRegisterEditText).text.toString()
@@ -144,36 +138,5 @@ class RegisterActivity : AppCompatActivity() {
                         Log.i("Register Activity", "Error adding user", e)
                     }
         }
-    }
-
-    private fun getUserCustomsAndCoins(){
-        db.collection("usercustoms")
-            .get()
-            .addOnSuccessListener { result ->
-                Log.w("Register", "Success getting documents")
-                for (document in result) {
-                    val currentDbObject = document.toObject(usercustoms::class.java)
-                    savePreferences(currentDbObject.coins, currentDbObject.customisations)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("Resgister", "Error getting documents: ", exception)
-            }
-    }
-
-    private fun savePreferences(coins:Int, customizations:MutableList<String>?){
-        var actualcoins = 0
-        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
-        val editor = sharedPreference.edit()
-        var customSet = HashSet<String>()
-        if (customizations != null) {
-            for(customs in customizations){
-                customSet.add(customs)
-            }
-            editor.putStringSet("CUSTOMS", customSet)
-        }
-        actualcoins += coins
-        editor.putInt("COINS", actualcoins)
-        editor.commit()
     }
 }
