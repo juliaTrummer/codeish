@@ -1,0 +1,33 @@
+image: openjdk:11-jdk
+
+stages:
+  - compile
+  - test
+  - package
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+compile:
+  stage: compile
+  script:
+    - ./gradlew assemble
+
+test:
+  stage: test
+  script:
+    - ./gradlew test --stacktrace
+
+package:
+  stage: package
+  script:
+    - ./gradlew shadowJar
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 day
