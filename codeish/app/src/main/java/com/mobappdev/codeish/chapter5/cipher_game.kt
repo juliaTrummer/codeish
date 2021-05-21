@@ -60,7 +60,7 @@ class ciper_game : AppCompatActivity() {
     private fun generateCipher(){
         var randomNumber = generateRandomNumber(1, 20)
         var generatedString : String = ""
-        var word = wordList[generateRandomNumber(0, wordList.size)]
+        var word = wordList[generateRandomNumber(0, wordList.size-1)]
 
         for (i in 0..word.length-1) {
             if (Character.isUpperCase(word[i])) {
@@ -112,10 +112,12 @@ class ciper_game : AppCompatActivity() {
         builder.setView(input)
         builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
             var m_Text = input.text.toString()
-            if(m_Text == word.toLowerCase()){
-                createAwesomeDialog();
-            }else{
-                createFailedAwesomeDialog()
+            if(m_Text!=null && word.toLowerCase()!=null){
+                if(m_Text.toLowerCase() == word.toLowerCase()){
+                    createAwesomeDialog();
+                }else{
+                    createFailedAwesomeDialog()
+                }
             }
         })
         builder.setNegativeButton("Abbrechen", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
@@ -138,7 +140,11 @@ class ciper_game : AppCompatActivity() {
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         val keys: Map<String, *> = sharedPreference.all
-        editor.putInt("COINS",keys["COINS"].toString().toInt() + coins)
+        if(keys["COINS"]!=null){
+            editor.putInt("COINS",keys["COINS"].toString().toInt() + coins)
+        }else{
+            editor.putInt("COINS",coins)
+        }
         editor.commit()
     }
 

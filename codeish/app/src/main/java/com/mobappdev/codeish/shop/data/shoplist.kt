@@ -48,6 +48,7 @@ class ShopList (private val mShopItems: List<ShopItem>, val context : Context, v
         coinsTextView = displaycoins
         coinsTextView.setText("" + userCoins)
         db = FirebaseFirestore.getInstance()
+        customs = HashSet()
         val inflater = LayoutInflater.from(context)
         val topicView = inflater.inflate(R.layout.item_shop, parent, false)
         return ViewHolder(topicView)

@@ -89,13 +89,12 @@ class mainView : AppCompatActivity() {
             arrayListOf<Topic>(
                 Topic(resources.getString(R.string.header1),
                     "test",
-                    "Computer sind überall, nicht nur im Telefon und Laptops.",
+                    "Es gibt verschiedene Computer. Manche dieser Computer sind riesig und manche ganz klein.",
                     R.drawable.gst,
                     Intent(this, gettingstarted::class.java)),
                 Topic(resources.getString(R.string.header3),
                     "test",
-                    "Was ist Hardware? Dieses englische Wort beschreibt alle Dinge " +
-                            "die man in echt bei einem Computer berühren kann!",
+                    "Hardware: Das sind die Teile des Computers, die man anfassen kann",
                     R.drawable.hw,
                     Intent(this, hardware::class.java)),
                 Topic(resources.getString(R.string.header4),
@@ -107,12 +106,7 @@ class mainView : AppCompatActivity() {
                     "test",
                     "Jeder kann geheime Botschaften versenden! Versuche es selbst.",
                     R.drawable.enc,
-                    Intent(this, encryption::class.java)),
-                Topic(resources.getString(R.string.header6),
-                    "test",
-                    "Ich möchte das Programmieren gerne selber ausprobieren!",
-                    R.drawable.gst,
-                    Intent(this, codingNI::class.java)))
+                    Intent(this, encryption::class.java)))
                 /*Topic(resources.getString(R.string.header7),
                     "test",
                     "Hast du gewusst dass auch viele verschiedene Sprachen gibt, " +
