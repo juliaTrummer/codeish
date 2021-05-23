@@ -9,4 +9,4 @@ The main objective of this thesis was to determine if an implementation of a mob
 could support pupils aged eight to ten, to engage more often with information technologies 
 and hence increase their digital skills. 
 
-![alt text](./imgs/codeish.png)
+![alt text](./imgs/codeish.png =250x)
