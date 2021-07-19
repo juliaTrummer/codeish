@@ -1,4 +1,5 @@
 # codeish
+The process of digitalization has progressed rapidly. This influences various people in their jobs or in their education.
 Code\[ish] is an App (prototype) for students and teachers in primary school. It helps pupils understand
 how Computers work and shows basics of technologies.
 
